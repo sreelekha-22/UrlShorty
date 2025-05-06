@@ -1,0 +1,5 @@
+Hibernate: create table click_event (id bigint not null auto_increment, click_date datetime(6), url_mapping_id bigint, primary key (id)) engine=InnoDB
+Hibernate: create table url_mapping (id bigint not null auto_increment, click_count integer not null, created_date datetime(6), original_url varchar(255), short_url varchar(255), user_id bigint, primary key (id)) engine=InnoDB
+Hibernate: create table users (id bigint not null auto_increment, email varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id)) engine=InnoDB
+Hibernate: alter table click_event add constraint FK569i4rsslbjh08ffdc4iumly2 foreign key (url_mapping_id) references url_mapping (id)
+Hibernate: alter table url_mapping add constraint FKpd4vqdk4o6lis35i2b1vo96v0 foreign key (user_id) references users (id)
